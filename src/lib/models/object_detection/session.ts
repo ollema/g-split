@@ -9,7 +9,7 @@ export async function createSession(
 	executionProviders = DEFAULT_EXECUTION_PROVIDERS,
 	graphOptimizationLevel = DEFAULT_GRAPH_OPTIMIZATION_LEVEL
 ): Promise<ort.InferenceSession> {
-	ort.env.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/';
+	ort.env.wasm.wasmPaths = '/';
 
 	// @ts-expect-error false positive
 	return ort.InferenceSession.create(model, {
