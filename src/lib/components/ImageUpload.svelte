@@ -73,12 +73,11 @@
 	>
 		<input class="hidden" type="file" accept="image/*" onchange={handleChange} bind:this={input} />
 
-		<div class="w-fill relative flex aspect-square w-full max-w-lg items-center justify-center">
-			<div
-				class={cn('absolute flex flex-col items-center justify-center px-0 py-4', src && 'hidden')}
-			>
+		<div class="relative flex aspect-square w-full max-w-lg items-center justify-center">
+			<div class={cn('absolute flex flex-col items-center justify-center', src && 'hidden')}>
 				<p class="mb-2 text-sm text-gray-600">
-					<span class="font-semibold">Click to upload</span> or drag and drop
+					<span class="font-semibold">Click to upload</span> or
+					<span class="font-semibold">drag and drop</span>
 				</p>
 				<p class="text-sm text-gray-600">Supported formats: SVG, PNG & JPG</p>
 			</div>
