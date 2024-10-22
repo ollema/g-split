@@ -73,7 +73,7 @@
 	>
 		<input class="hidden" type="file" accept="image/*" onchange={handleChange} bind:this={input} />
 
-		<div class="relative flex aspect-square w-full max-w-lg items-center justify-center">
+		<div class="relative flex aspect-square h-[412px] w-[412px] items-center justify-center">
 			<div class={cn('absolute flex flex-col items-center justify-center', src && 'hidden')}>
 				<p class="mb-2 text-sm text-gray-600">
 					<span class="font-semibold">Click to upload</span> or
@@ -83,7 +83,7 @@
 			</div>
 
 			<img
-				class={cn('hidden object-contain object-center', src && 'block')}
+				class={cn('hidden h-full w-full object-contain object-center', src && 'block')}
 				{src}
 				alt="uploaded"
 				bind:this={img}

@@ -1,14 +1,21 @@
 <script lang="ts">
-	import { WIDTH, HEIGHT, type BoundingBox } from '$lib/models/object_detection/detect';
+	import { WIDTH, HEIGHT } from '$lib/models/object_detection/detect';
+	import type { BoundingBox } from '$lib/types';
+	import type { JimpInstance } from 'jimp';
 
-	let { bboxes }: { bboxes: BoundingBox[] } = $props();
+	let { bboxes, image }: { bboxes: BoundingBox[]; image?: JimpInstance } = $props();
 
 	let canvas: HTMLCanvasElement;
 
 	function updateCanvas() {
-		if (document && canvas && bboxes) {
+		if (document && canvas && bboxes && image) {
 			const ctx = canvas.getContext('2d');
 			if (ctx) {
+				// TODO: make this a function
+				const scale = Math.max(image.width / WIDTH, image.height / HEIGHT);
+				const xPadding = (WIDTH * scale - image.width) / 2;
+				const yPadding = (HEIGHT * scale - image.height) / 2;
+
 				canvas.width = WIDTH;
 				canvas.height = HEIGHT;
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -22,15 +29,20 @@
 				ctx.fillStyle = 'green';
 
 				bboxes.forEach(({ x, y, width, height, label }) => {
-					ctx.strokeRect(x, y, width, height);
-					ctx.fillText(label, x, y - 5);
+					ctx.strokeRect(
+						(x + xPadding) / scale,
+						(y + yPadding) / scale,
+						width / scale,
+						height / scale
+					);
+					ctx.fillText(label, (x + xPadding) / scale, (y + yPadding) / scale - 5);
 				});
 			}
 		}
 	}
 
 	$effect(() => {
-		if (bboxes) {
+		if (bboxes && image) {
 			updateCanvas();
 		}
 	});
