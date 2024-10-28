@@ -22,7 +22,7 @@
 	});
 </script>
 
-<div class="mx-auto mt-6 flex max-w-md flex-col items-center gap-4">
+<div class="mx-auto max-w-md h-screen">
 	<ImageUpload bind:src>
 		<BoundingBoxOverlay {bboxes} {image} />
 	</ImageUpload>

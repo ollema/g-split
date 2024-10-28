@@ -1,7 +1,7 @@
 import * as ort from 'onnxruntime-web/webgpu';
 
-const DEFAULT_MODEL_FILE_PATH = '/yolo11n.onnx';
-const DEFAULT_EXECUTION_PROVIDERS = ['webgpu'];
+const DEFAULT_MODEL_FILE_PATH = '/yolo11s.onnx';
+const DEFAULT_EXECUTION_PROVIDERS = ['wasm', 'webgpu'];
 const DEFAULT_GRAPH_OPTIMIZATION_LEVEL = 'all';
 
 export async function createSession(

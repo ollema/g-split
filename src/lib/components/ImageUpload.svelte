@@ -56,42 +56,40 @@
 	}
 </script>
 
-<div class="flex w-full items-center justify-center">
-	<div
-		class={cn(
-			'flex w-full cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-gray-300 p-4 transition duration-300 ease-in-out hover:bg-gray-100',
-			dragging && 'border-blue-500 bg-blue-100'
-		)}
-		ondragenter={handleDrag}
-		ondragleave={handleDrag}
-		ondragover={handleDrag}
-		ondrop={handleDrop}
-		onclick={onButtonClick}
-		onkeydown={handleKeyDown}
-		role="button"
-		tabindex="0"
-	>
-		<input class="hidden" type="file" accept="image/*" onchange={handleChange} bind:this={input} />
+<div
+	class={cn(
+		'flex w-full aspect-square cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-gray-300 p-4 transition duration-300 ease-in-out hover:bg-gray-100',
+		dragging && 'border-blue-500 bg-blue-100'
+	)}
+	ondragenter={handleDrag}
+	ondragleave={handleDrag}
+	ondragover={handleDrag}
+	ondrop={handleDrop}
+	onclick={onButtonClick}
+	onkeydown={handleKeyDown}
+	role="button"
+	tabindex="0"
+>
+	<input class="hidden" type="file" accept="image/*" onchange={handleChange} bind:this={input} />
 
-		<div class="relative flex aspect-square h-[412px] w-[412px] items-center justify-center">
-			<div class={cn('absolute flex flex-col items-center justify-center', src && 'hidden')}>
-				<p class="mb-2 text-sm text-gray-600">
-					<span class="font-semibold">Click to upload</span> or
-					<span class="font-semibold">drag and drop</span>
-				</p>
-				<p class="text-sm text-gray-600">Supported formats: SVG, PNG & JPG</p>
-			</div>
-
-			<img
-				class={cn('hidden h-full w-full object-contain object-center', src && 'block')}
-				{src}
-				alt="uploaded"
-				bind:this={img}
-			/>
-
-			{#if children}
-				{@render children()}
-			{/if}
+	<div class="relative flex w-full h-full items-center justify-center">
+		<div class={cn('absolute flex flex-col items-center justify-center', src && 'hidden')}>
+			<p class="mb-2 text-sm text-gray-600">
+				<span class="font-semibold">Click to upload</span> or
+				<span class="font-semibold">drag and drop</span>
+			</p>
+			<p class="text-sm text-gray-600">Supported formats: SVG, PNG & JPG</p>
 		</div>
+
+		<img
+			class={cn('hidden h-full w-full object-contain object-center', src && 'block')}
+			{src}
+			alt="uploaded"
+			bind:this={img}
+		/>
+
+		{#if children}
+			{@render children()}
+		{/if}
 	</div>
 </div>
