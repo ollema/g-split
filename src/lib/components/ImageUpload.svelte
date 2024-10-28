@@ -58,7 +58,7 @@
 
 <div
 	class={cn(
-		'flex w-full aspect-square cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-gray-300 p-4 transition duration-300 ease-in-out hover:bg-gray-100',
+		'flex aspect-square w-full cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-gray-300 p-4 transition duration-300 ease-in-out hover:bg-gray-100',
 		dragging && 'border-blue-500 bg-blue-100'
 	)}
 	ondragenter={handleDrag}
@@ -72,7 +72,7 @@
 >
 	<input class="hidden" type="file" accept="image/*" onchange={handleChange} bind:this={input} />
 
-	<div class="relative flex w-full h-full items-center justify-center">
+	<div class="relative flex h-full w-full items-center justify-center">
 		<div class={cn('absolute flex flex-col items-center justify-center', src && 'hidden')}>
 			<p class="mb-2 text-sm text-gray-600">
 				<span class="font-semibold">Click to upload</span> or

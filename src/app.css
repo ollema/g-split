@@ -1,3 +1,17 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer base {
+	@font-face {
+		font-family: 'Bergan';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/fonts/Bergan.woff2) format('woff2');
+	}
+}
+
+body {
+	@apply bg-neutral-800 bg-[url('/images/otis-redding.png'),_url('/images/dots.svg')] bg-scroll bg-center bg-repeat text-yellow-100;
+}

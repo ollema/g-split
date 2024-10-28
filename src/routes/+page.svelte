@@ -22,7 +22,9 @@
 	});
 </script>
 
-<div class="mx-auto max-w-md h-screen">
+<h1 class="mx-auto w-min whitespace-nowrap font-display text-5xl">G-SPLIT.BEER</h1>
+
+<div class="mx-auto h-screen max-w-md">
 	<ImageUpload bind:src>
 		<BoundingBoxOverlay {bboxes} {image} />
 	</ImageUpload>
