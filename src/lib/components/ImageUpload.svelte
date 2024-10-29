@@ -58,8 +58,8 @@
 
 <div
 	class={cn(
-		'flex aspect-square w-full cursor-pointer flex-col items-center justify-center rounded-md border-2 border-dashed border-gray-300 p-4 transition duration-300 ease-in-out hover:bg-gray-100',
-		dragging && 'border-blue-500 bg-blue-100'
+		'aspect-square w-full max-w-lg flex-shrink-0 cursor-pointer rounded-lg border border-neutral-400 bg-neutral-800 p-4 hover:brightness-110',
+		dragging && 'border-blue-500 brightness-110'
 	)}
 	ondragenter={handleDrag}
 	ondragleave={handleDrag}
@@ -74,11 +74,9 @@
 
 	<div class="relative flex h-full w-full items-center justify-center">
 		<div class={cn('absolute flex flex-col items-center justify-center', src && 'hidden')}>
-			<p class="mb-2 text-sm text-gray-600">
-				<span class="font-semibold">Click to upload</span> or
-				<span class="font-semibold">drag and drop</span>
+			<p class="text-sm text-neutral-200">
+				Click to upload or drag and drop
 			</p>
-			<p class="text-sm text-gray-600">Supported formats: SVG, PNG & JPG</p>
 		</div>
 
 		<img

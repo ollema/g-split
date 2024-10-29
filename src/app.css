@@ -10,6 +10,20 @@
 		font-display: swap;
 		src: url($lib/assets/fonts/Bergan.woff2) format('woff2');
 	}
+	@font-face {
+		font-family: 'BerganOutline';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url($lib/assets/fonts/Bergan-outline.woff2) format('woff2');
+	}
+	@font-face {
+		font-family: 'Quantico';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url($lib/assets/fonts/Quantico.woff2) format('woff2');
+	}
 }
 
 body {
